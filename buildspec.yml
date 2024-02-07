@@ -11,5 +11,7 @@ phases:
       - pip install --upgrade awscli
   build:
     commands:
-      - echo "Deploying DynamoDB Table..."
-      - aws cloudformation deploy --template-file https://mi-nuevo-bucket-s3.s3.amazonaws.com/template.yml --stack-name MyDynamoDBStack --parameter-overrides EnvironmentName=dev --region us-east-1
+      #- echo "Deploying DynamoDB Table..."
+      #- aws cloudformation deploy --template-file https://mi-nuevo-bucket-s3.s3.amazonaws.com/template.yml --stack-name MyDynamoDBStack --parameter-overrides EnvironmentName=dev --region us-east-1
+      - chmod +x validar_stack.sh
+      - ./validar_stack.sh
