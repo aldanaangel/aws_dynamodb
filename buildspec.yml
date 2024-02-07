@@ -3,15 +3,13 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      python: 3.12
+      python: 3.8
   pre_build:
     commands:
       - echo "Installing AWS CLI..."
-      - sudo apt update && sudo apt upgrade -y
-      - sudo apt install -y python3-pip
-      - pip3 install awscli
+      - pip install --upgrade pip
+      - pip install --upgrade awscli
   build:
     commands:
       - echo "Deploying DynamoDB Table..."
       - aws cloudformation deploy --template-file s3://mi-nuevo-bucket-s3/template.yml --stack-name MyDynamoDBStack --parameter-overrides EnvironmentName=dev --region us-east-1
-      
