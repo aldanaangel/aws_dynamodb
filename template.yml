@@ -19,6 +19,7 @@ Resources:
       ProvisionedThroughput:
         ReadCapacityUnits: 5
         WriteCapacityUnits: 5
+      DeletionPolicy: Retain
 
   SecondTable:
     Type: AWS::DynamoDB::Table
@@ -37,3 +38,4 @@ Resources:
       ProvisionedThroughput:
         ReadCapacityUnits: 5
         WriteCapacityUnits: 5
+      DeletionPolicy: Retain
