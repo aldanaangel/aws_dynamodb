@@ -13,4 +13,4 @@ phases:
   build:
     commands:
       - echo "Deploying DynamoDB Table..."
-      - aws cloudformation deploy --template-file https://github.com/aldanaangel/aws_dynamodb/blob/main/template.yaml --stack-name MyDynamoDBStack --parameter-overrides EnvironmentName=dev --region us-east-1
+      - aws cloudformation deploy --template-file s3://mi-nuevo-bucket-s3/template.yml --stack-name MyDynamoDBStack --parameter-overrides EnvironmentName=dev --region us-east-1
