@@ -1,20 +1,39 @@
-AWSTemplateFormatVersion: 2010-09-09
-Description: AWS CloudFormation Template for the DynamoDB
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Plantilla para crear dos tablas en Amazon DynamoDB
+
 Resources:
-  DynamoDBTable:
-    Type: "AWS::DynamoDB::Table"
+  FirstTable:
+    Type: AWS::DynamoDB::Table
     Properties:
-      TableName: !Sub "test-dbtable"
+      TableName: FirstTable
       AttributeDefinitions:
-        - AttributeName: "id"
-          AttributeType: "S"
+        - AttributeName: PK
+          AttributeType: S
+        - AttributeName: SK
+          AttributeType: S
       KeySchema:
-        - AttributeName: "id"
-          KeyType: "HASH"
+        - AttributeName: PK
+          KeyType: HASH
+        - AttributeName: SK
+          KeyType: RANGE
       ProvisionedThroughput:
         ReadCapacityUnits: 5
         WriteCapacityUnits: 5
 
-Outputs:
-  DynamoDBTableName:
-    Value: !Ref DynamoDBTable
+  SecondTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: SecondTable
+      AttributeDefinitions:
+        - AttributeName: PK
+          AttributeType: S
+        - AttributeName: SK
+          AttributeType: S
+      KeySchema:
+        - AttributeName: PK
+          KeyType: HASH
+        - AttributeName: SK
+          KeyType: RANGE
+      ProvisionedThroughput:
+        ReadCapacityUnits: 5
+        WriteCapacityUnits: 5
