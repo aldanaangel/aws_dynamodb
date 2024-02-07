@@ -26,4 +26,3 @@ Resources:
 Outputs:
   DynamoDBTableName:
     Value: !Ref DynamoDBTable
-    
